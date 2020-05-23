@@ -11,6 +11,7 @@ The purpose of the app was to learn as to :
  3. How to encapsulate the backend to the frontend?
  4. How to deploy React and Spring Boot along with MySQL DB in my server?
  5. How to use swagger2 to document and use your REST APIs
+    http://localhost:9780/swagger-ui.html
 
 ### Installation
 
