@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.simplified.aanchal.dao.CustomerDAO;
-import com.simplified.aanchal.modal.Customer;
+import com.simplified.aanchal.connectors.db.CustomerDAO;
+import com.simplified.aanchal.connectors.db.Customer;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -18,13 +18,13 @@ public class CustomerServiceImpl implements CustomerService {
 	@Transactional
 	@Override
 	public List<Customer> get() {
-		return customerDao.get();
+		return customerDao.findAll();
 	}
 
 	@Transactional
 	@Override
 	public Customer get(int id) {
-		return customerDao.get(id);
+		return customerDao.findById(id);
 	}
 
 	@Transactional
@@ -37,7 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 	@Transactional
 	@Override
 	public void delete(int id) {
-		customerDao.delete(id);
+		customerDao.deleteById(id);
 		
 	}
 

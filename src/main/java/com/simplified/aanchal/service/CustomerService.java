@@ -2,7 +2,7 @@ package com.simplified.aanchal.service;
 
 import java.util.List;
 
-import com.simplified.aanchal.modal.Customer;
+import com.simplified.aanchal.connectors.db.Customer;
 
 public interface CustomerService {
 	
