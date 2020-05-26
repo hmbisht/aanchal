@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simplified.aanchal.service.CustomerService;
-import com.simplified.aanchal.modal.Customer;
+import com.simplified.aanchal.connectors.db.Customer;
 
 @RestController
 @RequestMapping("/api")
@@ -42,11 +42,8 @@ public class CustomerController {
 	
 	@DeleteMapping("/customers/{id}")
 	public String delete(@PathVariable int id) {
-		
 		customerService.delete(id);
-		
-		return "Employee removed with id "+id;
-		
+		return "Customer removed with id " + id;
 	}
 	
 	@PutMapping("/customers")
