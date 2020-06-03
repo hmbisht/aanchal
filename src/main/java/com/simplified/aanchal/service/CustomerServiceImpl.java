@@ -31,14 +31,27 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void save(Customer customer) {
 		customerDao.save(customer);
-		
 	}
 
 	@Transactional
 	@Override
 	public void delete(int id) {
 		customerDao.deleteById(id);
-		
+	}
+
+	@Transactional
+	@Override
+	public Customer update(int id, Customer customer) {
+		Customer c = customerDao.findById(id);
+		if (null == c) {
+			customerDao.save(customer);
+			return customer;
+		} else {
+			c.setName(customer.getName());
+			c.setGender(customer.getGender());
+			customerDao.save(c);
+			return c;
+		}
 	}
 
 }
