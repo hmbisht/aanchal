@@ -1,6 +1,9 @@
-# React, Spring Boot and MySQL webapp!
+# Progressive webapp with React, Spring Boot, MySQL and many more
 
-Hey there! This app is an example application for anyone looking for a web app linking the backend capabilities of Spring Boot (with Hibernate) to excellent frontend offered by React.
+Hi there! This app is an example application for end to end runing application with React, Spring Boot, MySql, Swagger, liquibase etc.
+I've tried to use most of the technologies and various java features.
+
+This app is working with Java 11.
 
 ## The purpose of the webapp
 
