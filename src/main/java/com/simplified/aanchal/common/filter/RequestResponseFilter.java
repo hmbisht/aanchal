@@ -25,7 +25,7 @@ public class RequestResponseFilter implements Filter {
       String requestId = httpRequest.getHeader("x-request-id");
       String correlationId = httpRequest.getHeader("x-debug-id");
 
-      log.info("Request received at RequestResponseFilter. X-request-id: " + requestId + ", x-debug-id: " + correlationId + ".");
+      log.info("Request received at RequestResponseFilter. x-request-id: " + requestId + ", x-debug-id: " + correlationId + ".");
 
       // Do something, may be add some string to identify the request gone through for Splunk etc.
       filterChain.doFilter(httpRequest, servletResponse);

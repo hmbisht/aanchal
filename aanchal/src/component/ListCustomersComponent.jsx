@@ -4,15 +4,15 @@ import CustomerDataService from "../service/CustomerDataService";
 class ListCustomersComponent extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             customers: [],
             message: null
-        }
-        this.addCustomerClicked = this.addCustomerClicked.bind(this)
-        this.updateCustomerClicked = this.updateCustomerClicked.bind(this)
-        this.deleteCustomerClicked = this.deleteCustomerClicked.bind(this)
-        this.refreshCustomers = this.refreshCustomers.bind(this)
+        };
+        this.addCustomerClicked = this.addCustomerClicked.bind(this);
+        this.updateCustomerClicked = this.updateCustomerClicked.bind(this);
+        this.deleteCustomerClicked = this.deleteCustomerClicked.bind(this);
+        this.refreshCustomers = this.refreshCustomers.bind(this);
     }
 
     componentWillUnmount() {
@@ -20,9 +20,9 @@ class ListCustomersComponent extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        console.log('shouldComponentUpdate')
-        console.log(nextProps)
-        console.log(nextState)
+        console.log('shouldComponentUpdate');
+        console.log(nextProps);
+        console.log(nextState);
         return true
     }
 
@@ -41,13 +41,12 @@ class ListCustomersComponent extends Component {
     }
 
     addCustomerClicked() {
-        console.log('A customer is being added.')
-        // TODO:: How does it works? this.props.history.push
+        console.log('A customer is being added.');
         this.props.history.push(`/customers/-1`)
     }
 
     updateCustomerClicked(id) {
-        console.log('Update customer: ')
+        console.log('Update customer: ');
         this.props.history.push(`/customers/${id}`)
     }
 
@@ -55,7 +54,7 @@ class ListCustomersComponent extends Component {
         CustomerDataService.deleteCustomer(id)
             .then(
                 response => {
-                    this.setState({ message: `Customer ${id} deleted successfully!` })
+                    this.setState({ message: `Customer ${id} deleted successfully!` });
                     this.refreshCustomers()
                 }
             )
@@ -74,6 +73,7 @@ class ListCustomersComponent extends Component {
                             <th>Id</th>
                             <th>Code</th>
                             <th>Name</th>
+                            <th>Gender</th>
                             <th>Update</th>
                             <th>Delete</th>
                         </tr>
@@ -86,6 +86,7 @@ class ListCustomersComponent extends Component {
                                         <td>{customer.id}</td>
                                         <td>{customer.code}</td>
                                         <td>{customer.name}</td>
+                                        <td>{customer.gender}</td>
                                         <td><button className="btn btn-success" onClick={() => this.updateCustomerClicked(customer.id)}>Update</button></td>
                                         <td><button className="btn btn-warning" onClick={() => this.deleteCustomerClicked(customer.id)}>Delete</button></td>
                                     </tr>
