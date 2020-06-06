@@ -2,6 +2,8 @@ package com.simplified.aanchal.controller;
 
 import java.util.List;
 
+import com.simplified.aanchal.connectors.db.Customer;
+import com.simplified.aanchal.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,9 +14,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.simplified.aanchal.service.CustomerService;
-import com.simplified.aanchal.connectors.db.Customer;
 
 @RestController
 @RequestMapping("/api")
@@ -46,10 +45,9 @@ public class CustomerController {
 		return "Customer removed with id " + id;
 	}
 	
-	@PutMapping("/customers")
-	public Customer update(@RequestBody Customer customer) {
-		customerService.save(customer);
-		return customer;
+	@PutMapping("/customers/{id}")
+	public Customer update(@PathVariable int id, @RequestBody Customer customer) {
+		return customerService.update(id, customer);
 	}
 
 }
